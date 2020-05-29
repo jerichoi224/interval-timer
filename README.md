@@ -1,13 +1,26 @@
 # Interval Timer
-Set timer to setup notification for a specific interval.
+<p align="center">
+<img src="src/assets/icon.png" width="30%" height="30%">
+</p>
+
+Work timer to setup notification for a specific interval.
 
 ## Downloads
 
-Todo
+To do
 
 ## Overview
+<img src="screenshots/start_state.png" width="30%" height="30%">
+State shown on menubar when application starts<br>
 
-Todo
+<img src="screenshots/running_state.png" width="30%" height="30%">
+State shown on menubar when started (start button pressed)<br>
+
+<img src="screenshots/work_done.png" width="30%" height="30%">
+Notificaiton for finished work time<br>
+
+<img src="screenshots/break_done.png" width="30%" height="30%">
+Notificaiton for finished break time<br>
 
 ## Features
 

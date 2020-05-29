@@ -10,3 +10,4 @@ npm run start // run in development mode.
 
 ## To-Do
 - Allow modification of work time and break time
+- Allow showing up on top of other fullscreen application on Mac

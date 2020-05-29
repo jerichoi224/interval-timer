@@ -1,3 +1,5 @@
+const { nativeImage } = require('electron')
+const path = require('path')
 
 const button = document.getElementById('button');
 const timeText = document.getElementById('time');
@@ -44,6 +46,8 @@ var convertTime = (sec) => {
 function incrementTime() {
   if(running){
     seconds++;
+    console.log(path.join(__dirname, '/assets/icon.png'))
+
     timeText.innerHTML = convertTime(seconds)
 
     if(work){
@@ -52,7 +56,7 @@ function incrementTime() {
         seconds = 0
   
         let n = new Notification('Take a Break!', {
-          body: '50 Minutes Past.'
+          body: workTime + ' Minutes Past.'
         })          
       }
     }

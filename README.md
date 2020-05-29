@@ -1,6 +1,17 @@
 # Interval Timer
 Set timer to setup notification for a specific interval.
 
+## Downloads
+
+Todo
+
+## Overview
+
+Todo
+
+## Features
+
+Todo
 
 ## Use
 ```

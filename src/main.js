@@ -13,7 +13,7 @@ let window = undefined
 // It is effectively the main method of our Electron app
 app.on('ready', () => {
   // Setup the menubar with an icon
-  let icon = nativeImage.createFromPath(path.join(__dirname, '/assets/icon.png'))
+  let icon = nativeImage.createFromPath(path.join(__dirname, '/assets/tray-icon.png'))
   tray = new Tray(icon)
 
   // Add a click handler so that when the user clicks on the menubar icon, it shows
@@ -39,6 +39,9 @@ app.on('ready', () => {
         enableRemoteModule: true
       }
   })
+
+  window.setIcon(path.join(__dirname, '/assets/icon.png'));
+
 //   window.webContents.openDevTools()
 
   // Tell the popup window to load our index.html file

@@ -7,7 +7,8 @@ Work timer to setup notification for a specific interval.
 
 ## Downloads
 
-To do
+[MacOS .dmg Download](https://github.com/jerichoi224/interval-timer/raw/master/builds/Interval_Timer.dmg)
+
 
 ## Overview
 State shown on menubar when application starts<br>
@@ -33,6 +34,7 @@ npm run start // run in development mode.
 ```
 
 ## To-Do
+- Add Window/Linux Build
 - Allow modification of work time and break time
 - Allow showing up on top of other fullscreen application on Mac
 - Remove the App showing up from Dock

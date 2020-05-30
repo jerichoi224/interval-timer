@@ -41,8 +41,12 @@ app.on('ready', () => {
   })
 
   window.setIcon(path.join(__dirname, '/assets/icon.png'));
+  app.dock.hide();
+  window.setAlwaysOnTop(true, "floating");
+  window.setVisibleOnAllWorkspaces(true);
+  window.setFullScreenable(false);
 
-//   window.webContents.openDevTools()
+  //   window.webContents.openDevTools()
 
   // Tell the popup window to load our index.html file
   window.loadFile(path.join(__dirname, 'index.html'));

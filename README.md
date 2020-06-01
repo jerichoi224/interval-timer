@@ -43,7 +43,8 @@ npm run start // run in development mode.
     - Added Mac .dmg build
     - Changed to make app show on top of other full screen applicaitons
     - App doesn't show on Dock (MacOS)
-
+-05/31
+    - Added Rightclick menu
 ## To-Do
 - Add comments in code
 - Add Window/Linux Build

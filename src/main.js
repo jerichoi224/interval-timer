@@ -1,4 +1,4 @@
-const {app, BrowserWindow, Tray, nativeImage} = require('electron')
+const {app, BrowserWindow, Tray, Menu, nativeImage} = require('electron')
 const path = require('path')
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
@@ -12,7 +12,7 @@ let window = undefined
 // This method is called once Electron is ready to run our code
 // It is effectively the main method of our Electron app
 app.on('ready', () => {
-  // Setup the menubar with an icon
+  // Setup the tray with an icon
   let icon = nativeImage.createFromPath(path.join(__dirname, '/assets/tray-icon.png'))
   tray = new Tray(icon)
 
@@ -26,6 +26,26 @@ app.on('ready', () => {
       window.openDevTools({mode: 'detach'})
     }
   })
+
+  const contextMenu = [
+    {
+       label: 'Settings',
+       click: function () {
+          console.log("Clicked on settings")
+       }
+    },
+    
+    {
+       label: 'About',
+       click: function () {
+          console.log("Clicked on Help")
+       }
+    }
+ ]
+
+  tray.on('right-click', function(event) {
+    tray.popUpContextMenu(Menu.buildFromTemplate(contextMenu))
+  });
 
   // Make the popup window for the menubar
   window = new BrowserWindow({
@@ -92,11 +112,3 @@ app.on('window-all-closed', () => {
     app.quit()
   }
 })
- 
-app.on('activate', () => {
-    // On OS X it's common to re-create a window in the app when the
-    // dock icon is clicked and there are no other windows open.
-    if (BrowserWindow.getAllWindows().length === 0) {
-      createWindow();
-    }
-  });

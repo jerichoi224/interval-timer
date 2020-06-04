@@ -69,20 +69,19 @@ function incrementTime() {
     console.log(seconds, workTime * 60)
 
     if(work){
-      if(seconds === 60 * workTime){
+      if(seconds >= 60 * workTime){
         work = false
-        seconds = 0
+        remote.getGlobal('timer').start_time = Math.round(new Date() / 1000)
   
         let n = new Notification('Take a Break!', {
           body: workTime + ' Minutes Past.'
         })          
       }
     }
-
-    if(!work){
-      if(seconds === 60 * breakTime){
+    else{
+      if(seconds >= 60 * breakTime){
         work = true
-        seconds = 0
+        remote.getGlobal('timer').start_time = Math.round(new Date() / 1000)
 
         let n = new Notification('Times up!', {
           body: 'Back to Work'

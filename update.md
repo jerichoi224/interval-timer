@@ -19,3 +19,6 @@
         - Gets more accurate timing
     - Added Quit Option
     - Added Comments to Code
+
+
+- Dev Stat: Halted (Working on a different project)

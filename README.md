@@ -42,4 +42,4 @@ npm run start // run in development mode.
 - Should the timer keep running even if the time is updated?
 
 ## Update Log
-[Click Here](src/update.md)
+[Click Here](update.md)

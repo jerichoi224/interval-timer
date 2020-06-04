@@ -35,11 +35,11 @@ npm run start // run in development mode.
 
 ## To-Do
 - Update Settings UI (It looks horrible)
-- Add comments in code
 - Add About Section
 - Add Window/Linux Build
 
 ### Decisions to make
 - Should the timer keep running even if the time is updated?
 
-## [Update Log](https://github.com/jerichoi224/interval-timer/update.md)
+## Update Log
+[Click Here](src/update.md)

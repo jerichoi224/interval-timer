@@ -18,3 +18,4 @@
     - Changed program to use Date.now() instead of rely on Interval
         - Gets more accurate timing
     - Added Quit Option
+    - Added Comments to Code

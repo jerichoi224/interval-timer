@@ -1,13 +1,32 @@
 const {app, BrowserWindow, Tray, Menu, nativeImage} = require('electron')
 const path = require('path')
+const Store = require('./store.js');
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) { // eslint-disable-line global-require
     app.quit();
   }
 
+const store = new Store({
+  // We'll call our data file 'user-preferences'
+  configName: 'user-preferences',
+  defaults: {
+    workTime: 50,
+    breakTime: 10
+  }
+});
+
+// The Tray and windows created
 let tray = undefined
-let window = undefined
+let window, settings = undefined
+
+// Variable to be able to work on the timer on different windows
+global.timer = {
+  start_time: Math.round(new Date() / 1000),
+  started: false,
+  workTime: store.get("workTime"),
+  breakTime: store.get("breakTime")
+}
 
 // This method is called once Electron is ready to run our code
 // It is effectively the main method of our Electron app
@@ -16,8 +35,7 @@ app.on('ready', () => {
   let icon = nativeImage.createFromPath(path.join(__dirname, '/assets/tray-icon.png'))
   tray = new Tray(icon)
 
-  // Add a click handler so that when the user clicks on the menubar icon, it shows
-  // our popup window
+  // Add a click handler so that when the user clicks on the menubar icon, it shows the main window
   tray.on('click', function(event) {
     toggleWindow()
 
@@ -27,28 +45,33 @@ app.on('ready', () => {
     }
   })
 
+  // Our menu that shows when right-clicked
   const contextMenu = [
     {
        label: 'Settings',
-       click: function () {
-          console.log("Clicked on settings")
+       click: function(){
+        createSettings()
        }
     },
     
     {
        label: 'About',
+       // To-Do
        click: function () {
           console.log("Clicked on Help")
        }
     }
  ]
-
+ 
+ // Bind the menu to right-click
   tray.on('right-click', function(event) {
     tray.popUpContextMenu(Menu.buildFromTemplate(contextMenu))
   });
 
-  // Make the popup window for the menubar
+  // Create the Main Window
   window = new BrowserWindow({
+    // width: 800,
+    // height: 800,
     width: 250,
     height: 60,
     show: false,
@@ -66,7 +89,7 @@ app.on('ready', () => {
   window.setVisibleOnAllWorkspaces(true);
   window.setFullScreenable(false);
 
-  //   window.webContents.openDevTools()
+  window.webContents.openDevTools()
 
   // Tell the popup window to load our index.html file
   window.loadFile(path.join(__dirname, 'index.html'));
@@ -88,6 +111,7 @@ const toggleWindow = () => {
   }
 }
 
+// Decides the position of the window. Make it look like its popping from the tray
 const showWindow = () => {
   const trayPos = tray.getBounds()
   const windowPos = window.getBounds()
@@ -112,3 +136,27 @@ app.on('window-all-closed', () => {
     app.quit()
   }
 })
+
+// create Settings
+const createSettings = () => {
+  // Create the Setting Menu, but don't show it.
+  settings = new BrowserWindow({
+    width: 300,
+    height: 160,
+    // width: 800,
+    // height: 800,
+    resizable: false,
+    webPreferences: {
+        nodeIntegration: true,
+        enableRemoteModule: true
+      }
+  })
+
+  settings.setIcon(path.join(__dirname, '/assets/icon.png'));
+  settings.setFullScreenable(false);
+
+  // Tell the popup window to load our index.html file
+  settings.loadFile(path.join(__dirname, 'settings.html'));
+  
+  // settings.webContents.openDevTools()
+}

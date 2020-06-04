@@ -43,9 +43,24 @@ npm run start // run in development mode.
     - Added Mac .dmg build
     - Changed to make app show on top of other full screen applicaitons
     - App doesn't show on Dock (MacOS)
--05/31
+- 05/31
     - Added Rightclick menu
+- 06/03
+    -  opens up settings menu
+- 06/04
+    - Modification of work time and break time
+        - Setting updates the new value to user file and persists data
+        - Saving the value will stop the timer
+    - Changed program to use Date.now() instead of rely on Interval
+        - Gets more accurate timing
+
 ## To-Do
+- Update Settings UI (It looks horrible)
 - Add comments in code
+- Add About Section
 - Add Window/Linux Build
-- Allow modification of work time and break time
+
+### Decisions to make
+- Should the timer keep running even if the time is updated?
+
+

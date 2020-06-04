@@ -48,19 +48,24 @@ app.on('ready', () => {
   // Our menu that shows when right-clicked
   const contextMenu = [
     {
-       label: 'Settings',
-       click: function(){
-        createSettings()
-       }
-    },
-    
-    {
        label: 'About',
        // To-Do
        click: function () {
           console.log("Clicked on Help")
        }
-    }
+    },
+    {
+      label: 'Settings',
+      click: function(){
+       createSettings()
+      }
+   },
+   {
+     label: 'Quit',
+     click: function(){
+       app.quit()
+     }
+   }
  ]
  
  // Bind the menu to right-click
@@ -89,7 +94,7 @@ app.on('ready', () => {
   window.setVisibleOnAllWorkspaces(true);
   window.setFullScreenable(false);
 
-  window.webContents.openDevTools()
+  // window.webContents.openDevTools()
 
   // Tell the popup window to load our index.html file
   window.loadFile(path.join(__dirname, 'index.html'));

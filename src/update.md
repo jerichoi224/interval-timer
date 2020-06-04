@@ -1,0 +1,20 @@
+- 05/28
+    - Initial Commit
+    - Initial Timer Working (Worktime[50], Breaktime[10])
+    - App Icon Complete
+- 05/29
+    - Fixed App Icon showing on app notificaiton
+    - Added Mac .dmg build
+    - Changed to make app show on top of other full screen applicaitons
+    - App doesn't show on Dock (MacOS)
+- 05/31
+    - Added Rightclick menu
+- 06/03
+    -  opens up settings menu
+- 06/04
+    - Modification of work time and break time
+        - Setting updates the new value to user file and persists data
+        - Saving the value will stop the timer
+    - Changed program to use Date.now() instead of rely on Interval
+        - Gets more accurate timing
+    - Added Quit Option

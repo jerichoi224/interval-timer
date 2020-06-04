@@ -32,27 +32,6 @@ Notificaiton for finished break time<br>
 npm install // install external library
 npm run start // run in development mode.
 ```
-## Update Log
-
-- 05/28
-    - Initial Commit
-    - Initial Timer Working (Worktime[50], Breaktime[10])
-    - App Icon Complete
-- 05/29
-    - Fixed App Icon showing on app notificaiton
-    - Added Mac .dmg build
-    - Changed to make app show on top of other full screen applicaitons
-    - App doesn't show on Dock (MacOS)
-- 05/31
-    - Added Rightclick menu
-- 06/03
-    -  opens up settings menu
-- 06/04
-    - Modification of work time and break time
-        - Setting updates the new value to user file and persists data
-        - Saving the value will stop the timer
-    - Changed program to use Date.now() instead of rely on Interval
-        - Gets more accurate timing
 
 ## To-Do
 - Update Settings UI (It looks horrible)
@@ -63,4 +42,4 @@ npm run start // run in development mode.
 ### Decisions to make
 - Should the timer keep running even if the time is updated?
 
-
+## [Update Log](https://github.com/jerichoi224/interval-timer/update.md)

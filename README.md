@@ -9,6 +9,8 @@ Work timer to setup notification for a specific interval.
 
 This Application was built to help control one's time working on a computer. It notifies the user to make sure to take a break from the screen every once in a while instead of staring into the screen for several hours. 
 
+Also works Greatly when using it for the pomodoro technique!
+
 ## Downloads
 
 [MacOS .dmg Download](https://github.com/jerichoi224/interval-timer/raw/master/builds/Interval_Timer.dmg)
